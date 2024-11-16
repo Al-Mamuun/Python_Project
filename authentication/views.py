@@ -75,7 +75,7 @@ def signin(request):
             messages.error(request, "Invalid credentials")  # Show error message
             return redirect('signin')  # Redirect back to signin
 
-    return render(request, "profile/profile.html")
+    return render(request, "SignIn/signin.html")
 
 def signout(request):
     logout(request)
