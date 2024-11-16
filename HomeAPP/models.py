@@ -69,11 +69,11 @@ class Profile(models.Model):
 class FeatureProject(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    goalAmount = models.FloatField()
+    goalAmount = models.FloatField(default=0.0)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True)  # Optional association
     createdAt = models.DateField(auto_now_add=True, blank=True, null=True)
     startDate = models.DateField(blank=True, null=True)
     endDate = models.DateField(blank=True, null=True)
-
 
     select_choice = (
         ('OnGoing', 'OnGoing'),
@@ -83,3 +83,4 @@ class FeatureProject(models.Model):
 
     def __str__(self):
         return self.title
+
