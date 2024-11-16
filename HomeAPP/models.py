@@ -19,7 +19,7 @@ class Project(models.Model):
 
     
 class Donation(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE,blank=True, null=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -73,6 +73,7 @@ class FeatureProject(models.Model):
     createdAt = models.DateField(auto_now_add=True, blank=True, null=True)
     startDate = models.DateField(blank=True, null=True)
     endDate = models.DateField(blank=True, null=True)
+
 
     select_choice = (
         ('OnGoing', 'OnGoing'),

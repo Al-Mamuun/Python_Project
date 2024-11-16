@@ -29,13 +29,13 @@ urlpatterns = [
     path('<str:id>/', M.details, name='details'),
     path('update/<str:id>/', M.update_project, name='update'),
     path('delete_p/<int:id>/', M.delete_p, name="delete_p"),
-    # path('', M.Mamun, name='mamun'),
+    path('', M.Mamun, name='mamun'),
     path('projects/<int:project_id>/donate/', M.donate_to_project, name='donate_to_project'),
     path('projects/<int:project_id>/comment/', M.comment_on_project, name='comment_on_project'),
     path('projects/<int:project_id>/rate/', M.rate_project, name='rate_project'),
     
     # Ensure authentication urls are included
-    path('', include('authentication.urls')),
+    # path('', include('authentication.urls')),
 ]
 
 # Media files for development

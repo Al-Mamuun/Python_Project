@@ -61,14 +61,7 @@ from .models import Project
 def details(request, id):
     # Option 1: Using get_object_or_404 for cleaner code
     project = get_object_or_404(Project, pk=id)
-    
-    # Option 2: Handling Project.DoesNotExist manually (if you prefer try-except)
-    # try:
-    #     project = Project.objects.get(pk=id)
-    # except Project.DoesNotExist:
-    #     return render(request, '404.html', {'message': 'Project not found'})
 
-    # Add any extra context if necessary, like ratings or comments related to the project
     return render(request, 'project/details.html', {'project': project})
 
 
@@ -135,27 +128,8 @@ def delete_p(request,id):
             return redirect('project_list')
     return render(request, 'Project/delete.html')
 
-# views.py
-from django.shortcuts import render, redirect
-from .models import Donation  # Assuming you have a Donation model for saving the donation details
 
-# def donate(request):
-#     if request.method == "POST":
-#         # Handle the donation logic here (e.g., saving data, processing payment, etc.)
-        
-#         # Example: Save donation data (You can extend this to handle payment processing)
-#         amount = request.POST.get('amount')
-        
-#         if amount:
-#             # Assuming you have a Donation model
-#             donation = Donation(amount=amount)
-#             donation.save()
-        
-#         # After processing, render a "Thank You" page or redirect
-#         return render(request, 'Donation/thanks.html', {'amount': amount})  # Show the amount donated or any other details
 
-#     # Render the donation form page if it's a GET request
-#     return render(request, 'Donation/donation.html')
 def Mamun(request):
     return render(request, template_name='Home/splash.html')
 
